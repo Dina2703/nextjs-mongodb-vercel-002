@@ -1,8 +1,17 @@
 import MealList from "../components/MealList";
+
 import { MongoClient } from "mongodb";
+import Link from "next/link";
 
 const HomePage = (props) => {
-  return <MealList meals={props.mealList} />;
+  return (
+    <>
+      <MealList meals={props.mealList} />
+      <button className="bg-blue-500 px-4 mx-10 py-2 rounded-lg text-gray-50 font-medium mt-2">
+        <Link href="/new-meal">add new meal</Link>
+      </button>
+    </>
+  );
 };
 
 export async function getStaticProps() {
